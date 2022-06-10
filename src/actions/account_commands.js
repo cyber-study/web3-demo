@@ -2,9 +2,12 @@ import { yellow } from "colors";
 import { Argument } from "commander";
 import { web3 } from "@/configs/web3_config";
 
-export const account_command_argument = new Argument("<actions>", "动作类型描述").choices(["get", "create", "query", "list"]);
+export const account_command_argument = new Argument("<actions>", "动作类型描述").choices(["get", "create", "query", "list", "test"]);
 
 export async function account_commands(command) {
+  if (command === "test") {
+    return console.log(web3.eth.accounts);
+  }
   if (command === "get") {
     const personal_accounts = await web3.eth.personal.getAccounts();
     return console.log("personal_accounts", personal_accounts);

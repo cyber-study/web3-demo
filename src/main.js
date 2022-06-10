@@ -1,9 +1,10 @@
 import { program } from "commander";
 import { name, version } from "@@/package.json";
 
-import { test_command } from "@/actions/test_command";
 import { miner_command } from "@/actions/miner_command";
+import { transaction_command } from "@/actions/transaction_command";
 import { account_commands, account_command_argument } from "@/actions/account_commands";
+
 import { create_config_file } from "@/actions/create_config_file";
 
 program
@@ -16,9 +17,9 @@ program
   .action(create_config_file);
 
 program
-  .command("test")
+  .command("tx")
   .description("这是测试命令")
-  .action(test_command);
+  .action(transaction_command);
 
 program
   .command("account")
