@@ -1,7 +1,7 @@
 import { program } from "commander";
 import { name, version } from "@@/package.json";
 
-import { miner_command } from "@/actions/miner_command";
+import { private_key } from "@/actions/private_key";
 import { transaction_command } from "@/actions/transaction_command";
 import { account_commands, account_command_argument } from "@/actions/account_commands";
 
@@ -17,8 +17,8 @@ program
   .action(create_config_file);
 
 program
-  .command("tx")
-  .description("这是测试命令")
+  .command("transaction")
+  .description("测试转账命令")
   .action(transaction_command);
 
 program
@@ -28,9 +28,9 @@ program
   .action(account_commands);
 
 program
-  .command("miner")
-  .description("矿工相关的命令")
-  .action(miner_command);
+  .command("private")
+  .description("根据keystore计算出私钥")
+  .action(private_key);
 
 program.parse();
 
