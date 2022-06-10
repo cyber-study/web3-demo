@@ -6,7 +6,7 @@ export const account_command_argument = new Argument("<actions>", "动作类型�
 
 export async function account_commands(command) {
   if (command === "test") {
-    return console.log(web3.eth.accounts);
+    return console.log(await web3.eth.getAccounts());
   }
   if (command === "get") {
     const personal_accounts = await web3.eth.personal.getAccounts();
